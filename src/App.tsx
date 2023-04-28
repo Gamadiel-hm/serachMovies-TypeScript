@@ -1,9 +1,8 @@
 import './App.css';
 import FormSearch from './components/FormSearch';
-import usefetching from './hooks/useFetching';
+import MoviesList from './components/MoviesList';
 
 function App() {
-  const { data } = usefetching();
   return (
     <>
       <header>
@@ -12,20 +11,7 @@ function App() {
       </header>
 
       <main className='movies-container'>
-        <ul className='movies'>
-          {data?.Search.map(movies => (
-            <li
-              key={movies.imdbID}
-              className='movi'>
-              <h4>{movies.Title}</h4>
-              <p>{movies.Year}</p>
-              <img
-                src={movies.Poster}
-                alt={movies.Title}
-              />
-            </li>
-          ))}
-        </ul>
+        <MoviesList />
       </main>
     </>
   );
